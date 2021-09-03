@@ -4,12 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Lego Block Puzzle</title>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      UnityLoader.instantiate("unityContainer", "Build/WebGLBuilds_LegoBlockPuzzle.json");
-    </script>
   </head>
-  <body>
-    <div id="unityContainer" style="width: 400px; height: 600px; margin: auto"></div>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" width=400 height=600 style="width: 400px; height: 600px; background: url('Build/WebGLBuilds_LegoBlockPuzzle.jpg') center / cover"></canvas>
+    <script src="Build/WebGLBuilds_LegoBlockPuzzle.asm.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/WebGLBuilds_LegoBlockPuzzle.data.gz",
+        frameworkUrl: "Build/WebGLBuilds_LegoBlockPuzzle.asm.framework.js.gz",
+        codeUrl: "Build/WebGLBuilds_LegoBlockPuzzle.asm.js.gz",
+        memoryUrl: "Build/WebGLBuilds_LegoBlockPuzzle.asm.mem.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "game",
+        productName: "Lego Block Puzzle",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
   </body>
 </html>
