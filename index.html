@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Solitaire Battle</title>
+    <title>Cube Puzzle</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -25,14 +25,14 @@
     <script>
       const hideFullScreenButton = "0";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/WebGLBuild_Solitaire.loader.js";
+      const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
       const config = {
-        dataUrl: buildUrl + "/WebGLBuild_Solitaire.data",
-        frameworkUrl: buildUrl + "/WebGLBuild_Solitaire.framework.js",
-        codeUrl: buildUrl + "/WebGLBuild_Solitaire.wasm",
+        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data",
+        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js",
+        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Piper",
-        productName: "Solitaire Battle",
+        companyName: "PiperPlay ",
+        productName: "Cube Puzzle",
         productVersion: "1.0",
       };
 
@@ -66,6 +66,7 @@
         setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
 
       }
+      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
       loadingCover.style.display = "";
 
       const script = document.createElement("script");
