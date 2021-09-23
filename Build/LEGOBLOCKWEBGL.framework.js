@@ -886,10 +886,8 @@ if (Module["buffer"]) {
 } else {
  if (typeof WebAssembly === "object" && typeof WebAssembly.Memory === "function") {
   assert(TOTAL_MEMORY % WASM_PAGE_SIZE === 0);
-  assert(536870912 % WASM_PAGE_SIZE == 0);
   Module["wasmMemory"] = new WebAssembly.Memory({
-   "initial": TOTAL_MEMORY / WASM_PAGE_SIZE,
-   "maximum": 536870912 / WASM_PAGE_SIZE
+   "initial": TOTAL_MEMORY / WASM_PAGE_SIZE
   });
   buffer = Module["wasmMemory"].buffer;
  } else {
@@ -5255,10 +5253,6 @@ var MEMFS = {
   return new Uint8Array(node.contents);
  }),
  expandFileStorage: (function(node, newCapacity) {
-  if (node.contents && node.contents.subarray && newCapacity > node.contents.length) {
-   node.contents = MEMFS.getFileDataAsRegularArray(node);
-   node.usedBytes = node.contents.length;
-  }
   if (!node.contents || node.contents.subarray) {
    var prevCapacity = node.contents ? node.contents.length : 0;
    if (prevCapacity >= newCapacity) return;
@@ -15098,7 +15092,6 @@ function _sysconf(name) {
   return PAGE_SIZE;
  case 85:
   var maxHeapSize = 2 * 1024 * 1024 * 1024 - 65536;
-  maxHeapSize = 536870912;
   return maxHeapSize / PAGE_SIZE;
  case 132:
  case 133:
