@@ -25,11 +25,12 @@
     <script>
       const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
+      const loaderUrl = buildUrl + "/Webgl_BlockBonanza.loader.js";
       const config = {
-        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data.unityweb",
-        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js.unityweb",
-        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm.unityweb",
+        dataUrl: buildUrl + "/Webgl_BlockBonanza.data.unityweb",
+        frameworkUrl: buildUrl + "/Webgl_BlockBonanza.framework.js.unityweb",
+        codeUrl: buildUrl + "/Webgl_BlockBonanza.wasm.unityweb",
+        symbolsUrl: buildUrl + "/Webgl_BlockBonanza.symbols.json.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "PiperPlay ",
         productName: "Cube Puzzle",
@@ -66,7 +67,7 @@
         setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
 
       }
-      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
+      canvas.style.background = "url('" + buildUrl + "/Webgl_BlockBonanza.jpg') center / cover";
       loadingCover.style.display = "";
 
       const script = document.createElement("script");
