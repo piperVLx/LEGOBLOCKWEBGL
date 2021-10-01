@@ -30,7 +30,7 @@
     <div id="unity-fullscreen-button" style="display: none;"></div>
     
     <script>
-     
+      setTimeout(function() {
       const hideFullScreenButton = "";
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
@@ -102,6 +102,7 @@
       };
       //
       document.body.appendChild(script);
+    }, 4500);
     </script>
     <script>
       
