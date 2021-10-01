@@ -51,6 +51,12 @@ body {
     
 }
 
+#bg{
+    z-index: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    position: relative;
+}
+
 #companytitle{
     margin-left: 12%;
     margin-right: 5%;
@@ -79,7 +85,8 @@ body {
     height: 100%;
     z-index: 1;
     overflow-x: hidden; /* Disable horizontal scroll */
-    position: relative;
+    overflow-y: hidden;
+    position: absolute;
 }
 
 #vid{

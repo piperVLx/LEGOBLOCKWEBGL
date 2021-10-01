@@ -11,7 +11,9 @@
   </head>
   <body class="dark">
     <div id= "video">
-      <img id ="vid" src="splash.gif" alt="splash" >
+      
+      <img id ="vid" src="splash.gif" alt="splash" /> 
+     
   </div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
@@ -28,11 +30,11 @@
         <div class="spinner"></div>
       </div>
     </div>
-    <div id="unity-fullscreen-button" style="display: none;"></div>
+  
     
     <script>
-      setTimeout(function() {
-      const hideFullScreenButton = "";
+
+const hideFullScreenButton = "";
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
       const config = {
@@ -50,9 +52,14 @@
       const loadingCover = document.querySelector("#loading-cover");
       const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
       const progressBarFull = document.querySelector("#unity-progress-bar-full");
-      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+     
       const spinner = document.querySelector('.spinner');
+      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
 
+      setTimeout(function() {
+     
+
+     
       const canFullscreen = (function() {
         for (const key of [
             'exitFullscreen',
@@ -74,10 +81,10 @@
         container.className = "unity-mobile";
         config.devicePixelRatio = 2;
         
-        setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
+        //setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
 
       }
-      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
+     
       loadingCover.style.display = "";
       
       const script = document.createElement("script");
@@ -89,14 +96,7 @@
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
           loadingCover.style.display = "none";
-          if (canFullscreen) {
-            if (!hideFullScreenButton) {
-              fullscreenButton.style.display = "";
-            }
-            fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };
-          }
+          
         }).catch((message) => {
           alert(message);
         });
@@ -109,7 +109,7 @@
       
        setTimeout(function() {
     $('#video').fadeOut('slow');
-}, 3000);
+}, 2500);
     </script>
   </body>
 </html>
