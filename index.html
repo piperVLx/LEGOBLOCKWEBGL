@@ -30,6 +30,7 @@
       </div>
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
+    
     <script>
      
       const hideFullScreenButton = "";
@@ -68,9 +69,7 @@
         return false;
       }());
 
-      setTimeout(function() {
-    $('#video').fadeOut('medium');
-}, 3000);
+     
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
@@ -105,6 +104,11 @@
       };
       //
       document.body.appendChild(script);
+    </script>
+    <script>
+       setTimeout(function() {
+    $('#video').fadeOut('fast');
+}, 7000);
     </script>
   </body>
 </html>
