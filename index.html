@@ -7,14 +7,22 @@
     <title>Cube Puzzle</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body class="dark">
+    <div id= "video">
+    <video height="100%" width="100%" autoplay="autoplay">
+      <source src="video.mp4" type="video/mp4" />
+    </video>
+  </div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
     </div>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
-        <div id="unity-logo"><img src="logo.png"></div>
+        <div id="unity-logo"><img src="GS-LOGO.png" id ="GameStake"></div>
+        <div id="unity-logo"><img src="logo.png" id ="gameLogo"></div>
+        <div id="unity-logo"><img src="piperplay.png" id ="companytitle"></div>
         <div id="unity-progress-bar-empty" style="display: none;">
           <div id="unity-progress-bar-full"></div>
         </div>
@@ -23,14 +31,14 @@
     </div>
     <div id="unity-fullscreen-button" style="display: none;"></div>
     <script>
+     
       const hideFullScreenButton = "";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/Webgl_BlockBonanza.loader.js";
+      const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
       const config = {
-        dataUrl: buildUrl + "/Webgl_BlockBonanza.data.unityweb",
-        frameworkUrl: buildUrl + "/Webgl_BlockBonanza.framework.js.unityweb",
-        codeUrl: buildUrl + "/Webgl_BlockBonanza.wasm.unityweb",
-        symbolsUrl: buildUrl + "/Webgl_BlockBonanza.symbols.json.unityweb",
+        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data.unityweb",
+        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js.unityweb",
+        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "PiperPlay ",
         productName: "Cube Puzzle",
@@ -60,6 +68,10 @@
         return false;
       }());
 
+      setTimeout(function() {
+    $('#video').fadeOut('medium');
+}, 3000);
+
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
         config.devicePixelRatio = 2;
@@ -67,9 +79,9 @@
         setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
 
       }
-      canvas.style.background = "url('" + buildUrl + "/Webgl_BlockBonanza.jpg') center / cover";
+      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
       loadingCover.style.display = "";
-
+      
       const script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
@@ -91,6 +103,7 @@
           alert(message);
         });
       };
+      //
       document.body.appendChild(script);
     </script>
   </body>
