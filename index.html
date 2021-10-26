@@ -34,12 +34,12 @@
     <script>
       const hideFullScreenButton = "0";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/sol.loader.js";
+      const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
       const config = {
-        dataUrl: buildUrl + "/sol.data",
-        frameworkUrl: buildUrl + "/sol.framework.js",
-        codeUrl: buildUrl + "/sol.wasm",
-        symbolsUrl: buildUrl + "/sol.symbols.json",
+        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data",
+        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js",
+        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm",
+        symbolsUrl: buildUrl + "/LEGOBLOCKWEBGL.symbols.json",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Piper",
         productName: "Solitaire Battle",
@@ -77,7 +77,7 @@
         setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
 
       }
-      canvas.style.background = "url('" + buildUrl + "/sol.jpg') center / cover";
+      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
       loadingCover.style.display = "";
 
       const script = document.createElement("script");
