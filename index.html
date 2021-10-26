@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Cube Puzzle</title>
+    <title>Solitaire Battle</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -20,30 +20,29 @@
     </div>
     <div id="loading-cover" style="display:none;">
       <div id="unity-loading-bar">
+        
         <div id="unity-logo"><img src="logo.png" id ="gameLogo"></div>
         
         <div id="unity-progress-bar-empty" style="display: none;">
           <div id="unity-progress-bar-full"></div>
         </div>
         <div id="unity-logo"><img src="GS-LOGO.png" id ="GameStake"></div>
-       
         <div class="spinner"></div>
       </div>
     </div>
-  
-    
+    <div id="unity-fullscreen-button" style="display: none;"></div>
     <script>
-
-const hideFullScreenButton = "";
+      const hideFullScreenButton = "0";
       const buildUrl = "Build";
-      const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
+      const loaderUrl = buildUrl + "/sol.loader.js";
       const config = {
-        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data.unityweb",
-        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js.unityweb",
-        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm.unityweb",
+        dataUrl: buildUrl + "/sol.data",
+        frameworkUrl: buildUrl + "/sol.framework.js",
+        codeUrl: buildUrl + "/sol.wasm",
+        symbolsUrl: buildUrl + "/sol.symbols.json",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "PiperPlay ",
-        productName: "Cube Puzzle",
+        companyName: "Piper",
+        productName: "Solitaire Battle",
         productVersion: "1.0",
       };
 
@@ -52,14 +51,10 @@ const hideFullScreenButton = "";
       const loadingCover = document.querySelector("#loading-cover");
       const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
       const progressBarFull = document.querySelector("#unity-progress-bar-full");
-     
+      const fullscreenButton = document.querySelector("#unity-fullscreen-button");
       const spinner = document.querySelector('.spinner');
-      canvas.style.background = "url('" + buildUrl + "/LEGOBLOCKWEBGL.jpg') center / cover";
-
+     
       setTimeout(function() {
-     
-
-     
       const canFullscreen = (function() {
         for (const key of [
             'exitFullscreen',
@@ -75,18 +70,16 @@ const hideFullScreenButton = "";
         return false;
       }());
 
-     
-
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
         config.devicePixelRatio = 2;
         
-        //setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
+        setTimeout(function(){ window.scrollTo(0, 1) }, 3000);
 
       }
-     
+      canvas.style.background = "url('" + buildUrl + "/sol.jpg') center / cover";
       loadingCover.style.display = "";
-      
+
       const script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
@@ -96,20 +89,26 @@ const hideFullScreenButton = "";
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
           loadingCover.style.display = "none";
-          
+          if (canFullscreen) {
+            if (!hideFullScreenButton) {
+              fullscreenButton.style.display = "";
+            }
+            fullscreenButton.onclick = () => {
+              unityInstance.SetFullscreen(1);
+            };
+          }
         }).catch((message) => {
           alert(message);
         });
       };
-      //
       document.body.appendChild(script);
     }, 2000);
     </script>
     <script>
       
-       setTimeout(function() {
-    $('#video').fadeOut('slow');
+      setTimeout(function() {
+   $('#video').fadeOut('slow');
 }, 2500);
-    </script>
+   </script>
   </body>
 </html>
