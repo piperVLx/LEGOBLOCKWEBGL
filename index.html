@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Solitaire Battle</title>
+    <title>Cube Puzzle</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -36,12 +36,13 @@
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/LEGOBLOCKWEBGL.loader.js";
       const config = {
-        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data",
-        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js",
-        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm",
+        dataUrl: buildUrl + "/LEGOBLOCKWEBGL.data.unityweb",
+        frameworkUrl: buildUrl + "/LEGOBLOCKWEBGL.framework.js.unityweb",
+        codeUrl: buildUrl + "/LEGOBLOCKWEBGL.wasm.unityweb",
+        symbolsUrl: buildUrl + "/LEGOBLOCKWEBGL.symbols.json.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Piper",
-        productName: "Solitaire Battle",
+        companyName: "PiperPlay ",
+        productName: "Cube Puzzle",
         productVersion: "1.0",
       };
 
