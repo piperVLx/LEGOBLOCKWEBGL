@@ -25,7 +25,7 @@
 
  <body style="margin:0px;padding:0px;overflow:hidden" >
   
-   <div id = "mobile">
+  <!-- <div id = "mobile">
    
     
         <iframe  src="https://playzap-343006.web.app/" frameborder="0" style="overflow:hidden;height:98vh;width:100%;padding-left: 0%;padding-right: 0%; padding-top: 1%; padding-bottom: 1%;"  scrolling="no">
@@ -39,22 +39,50 @@
           </iframe>
       </div>
    </div>
-
+-->
  </body>
 
  <script>
 
-  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-          console.log="HERE";
-        
-          document.getElementById("desktop").hidden = true;
-          document.getElementById("mobile").hidden = false;
+
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {     
+    console.log="HERE Mobile";
+          prepareFrameMobile();
         }else{
           console.log="HERE Desktop";
-          document.getElementById("mobile").hidden = true;
-          document.getElementById("desktop").hidden = false;
+          prepareFrameDesktop();
         }
+
+  function prepareFrameDesktop() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://playzap-343006.web.app/");
+        ifrm.setAttribute("scrolling","no");
+        ifrm.setAttribute("frameborder","0");
+        ifrm.style.width = "480px";
+        ifrm.style.height = "720px";
+        ifrm.style.paddingLeft = "35%";
+        ifrm.style.paddingTop = "2%";
+        
+        document.body.appendChild(ifrm);
+    }
+    function prepareFrameMobile() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "https://playzap-343006.web.app/");
+        ifrm.setAttribute("scrolling","no");
+        ifrm.setAttribute("frameborder","0");
+        ifrm.style.width = "100%";
+        ifrm.style.height = "100vh";
+        ifrm.style.paddingLeft = "0%";
+        ifrm.style.paddingRight ="0%";
+        ifrm.style.paddingTop = "0%";
+        ifrm.style.paddingBottom="0%"
+        
+
+        document.body.appendChild(ifrm);
+    }
   
+
+        
       </script>
  
 
