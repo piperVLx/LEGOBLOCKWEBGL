@@ -2,16 +2,60 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | PlayZap</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+   
+    <title>PlayZap</title>
+   
   </head>
 
- <body>
-  <iframe src="https://playzap-343006.web.app/" height="720px" width="380px" scrolling="no" >
-  </iframe>
+  <style>
+    .center {
+      margin: 0px;
+     height: 100%;
+     width: 100%;
+      overflow: hidden;
+      align-items: center;
+      padding-left: 35%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+     
+    }
+    </style>
+
+    
+
+ <body style="margin:0px;padding:0px;overflow:hidden" >
+  
+   <div id = "mobile">
+   
+    
+        <iframe  src="https://playzap-343006.web.app/" frameborder="0" style="overflow:hidden;height:95vh;width:95%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%;"  scrolling="no">
+        </iframe>
+
+    </div>
+
+    <div id = "desktop">
+      <div class="center">
+          <iframe  src="https://playzap-343006.web.app/"  height="720px" width="380px" scrolling="no"  >
+          </iframe>
+      </div>
+   </div>
+
  </body>
+
+ <script>
+
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          console.log="HERE";
+        
+          document.getElementById("desktop").hidden = true;
+          document.getElementById("mobile").hidden = false;
+        }else{
+          console.log="HERE Desktop";
+          document.getElementById("mobile").hidden = true;
+          document.getElementById("desktop").hidden = false;
+        }
+  
+      </script>
  
 
 </html>
